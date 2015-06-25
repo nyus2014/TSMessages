@@ -77,7 +77,8 @@ typedef NS_ENUM(NSInteger,TSMessageNotificationDuration) {
  @param type The notification type (Message, Warning, Error, Success)
  */
 + (void)showNotificationWithTitle:(NSString *)message
-                             type:(TSMessageNotificationType)type;
+                             type:(TSMessageNotificationType)type
+               accessibilityLabel:(NSString *)label;
 
 /** Shows a notification message
  @param title The title of the notification view
@@ -86,7 +87,8 @@ typedef NS_ENUM(NSInteger,TSMessageNotificationDuration) {
  */
 + (void)showNotificationWithTitle:(NSString *)title
                          subtitle:(NSString *)subtitle
-                             type:(TSMessageNotificationType)type;
+                             type:(TSMessageNotificationType)type
+               accessibilityLabel:(NSString *)label;
 
 /** Shows a notification message in a specific view controller
  @param viewController The view controller to show the notification in.
@@ -98,7 +100,8 @@ typedef NS_ENUM(NSInteger,TSMessageNotificationDuration) {
 + (void)showNotificationInViewController:(UIViewController *)viewController
                                    title:(NSString *)title
                                 subtitle:(NSString *)subtitle
-                                    type:(TSMessageNotificationType)type;
+                                    type:(TSMessageNotificationType)type
+                      accessibilityLabel:(NSString *)label;
 
 /** Shows a notification message in a specific view controller with a specific duration
  @param viewController The view controller to show the notification in.
@@ -112,7 +115,8 @@ typedef NS_ENUM(NSInteger,TSMessageNotificationDuration) {
                                    title:(NSString *)title
                                 subtitle:(NSString *)subtitle
                                     type:(TSMessageNotificationType)type
-                                duration:(NSTimeInterval)duration;
+                                duration:(NSTimeInterval)duration
+                      accessibilityLabel:(NSString *)label;
 
 /** Shows a notification message in a specific view controller with a specific duration
  @param viewController The view controller to show the notification in.
@@ -128,7 +132,8 @@ typedef NS_ENUM(NSInteger,TSMessageNotificationDuration) {
                                 subtitle:(NSString *)subtitle
                                     type:(TSMessageNotificationType)type
                                 duration:(NSTimeInterval)duration
-                     canBeDismissedByUser:(BOOL)dismissingEnabled;
+                     canBeDismissedByUser:(BOOL)dismissingEnabled
+                      accessibilityLabel:(NSString *)label;
 
 
 
@@ -155,7 +160,8 @@ typedef NS_ENUM(NSInteger,TSMessageNotificationDuration) {
                              buttonTitle:(NSString *)buttonTitle
                           buttonCallback:(void (^)())buttonCallback
                               atPosition:(TSMessageNotificationPosition)messagePosition
-                    canBeDismissedByUser:(BOOL)dismissingEnabled;
+                    canBeDismissedByUser:(BOOL)dismissingEnabled
+                      accessibilityLabel:(NSString *)label;
 
 /** Fades out the currently displayed notification. If another notification is in the queue,
  the next one will be displayed automatically
@@ -199,7 +205,5 @@ typedef NS_ENUM(NSInteger,TSMessageNotificationDuration) {
  on the UINavigationController or isHidden on the navigationBar of the current 
  UINavigationController */
 + (BOOL)isNavigationBarInNavigationControllerHidden:(UINavigationController *)navController;
-
-+ (void)setAccessibilityLabel:(NSString *)label;
 
 @end
