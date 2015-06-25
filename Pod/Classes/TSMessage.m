@@ -28,6 +28,7 @@ static BOOL notificationActive;
 
 static BOOL _useiOS7Style;
 
+static NSString *accessibilityLabel;
 
 __weak static UIViewController *_defaultViewController;
 
@@ -143,6 +144,8 @@ __weak static UIViewController *_defaultViewController;
                                              buttonCallback:buttonCallback
                                                  atPosition:messagePosition
                                        canBeDismissedByUser:dismissingEnabled];
+    v.accessibilityLabel = accessibilityLabel;
+    
     [self prepareNotificationToBeShown:v];
 }
 
@@ -449,6 +452,11 @@ __weak static UIViewController *_defaultViewController;
         _useiOS7Style = ! (TS_SYSTEM_VERSION_LESS_THAN(@"7.0") || !iOS7SDK);
     });
     return _useiOS7Style;
+}
+
++ (void)setAccessibilityLabel:(NSString *)label
+{
+    accessibilityLabel = label;
 }
 
 @end

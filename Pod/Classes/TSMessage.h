@@ -200,4 +200,6 @@ typedef NS_ENUM(NSInteger,TSMessageNotificationDuration) {
  UINavigationController */
 + (BOOL)isNavigationBarInNavigationControllerHidden:(UINavigationController *)navController;
 
++ (void)setAccessibilityLabel:(NSString *)label;
+
 @end
